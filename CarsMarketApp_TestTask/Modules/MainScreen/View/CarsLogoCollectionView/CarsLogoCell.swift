@@ -11,7 +11,7 @@ class CarsLogoCell: UICollectionViewCell {
     
     static let identifier = "Logo"
     
-    private let logoImage: UIImageView = {
+    private(set) var logoImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -29,7 +29,6 @@ class CarsLogoCell: UICollectionViewCell {
     
     private func createUI() {
         addSubview(logoImage)
-        backgroundColor = .blue
     }
     
 }

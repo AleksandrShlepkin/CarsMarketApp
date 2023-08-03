@@ -9,8 +9,15 @@ import UIKit
 
 class MainScreenView: UIView {
     
+    private var arrayLogo: [Logo] = []
+    
     private let logoCollection: CarsLogoCollectionView = {
         let collection = CarsLogoCollectionView()
+        return collection
+    }()
+    
+    private let carsCollection: CarsColletcionView = {
+        let collection = CarsColletcionView()
         return collection
     }()
     
@@ -26,8 +33,11 @@ class MainScreenView: UIView {
         super.init(frame: frame)
         createUI()
         createConstaraints()
+        makeMokObject()
         logoCollection.delegate = self
         logoCollection.dataSource = self
+        carsCollection.delegate = self
+        carsCollection.dataSource = self
     }
     
     required init?(coder: NSCoder) {
@@ -38,6 +48,24 @@ class MainScreenView: UIView {
         backgroundColor = .white
         addSubview(titleLabel)
         addSubview(logoCollection)
+        addSubview(carsCollection)
+    }
+    
+    private func makeMokObject() {
+        let mazda = Logo(image: UIImage(named: "mazda")!, name: "mazda")
+        let bmw = Logo(image: UIImage(named: "bmw")!, name: "bmw")
+        let lexus = Logo(image: UIImage(named: "lexus")!, name: "lexus")
+        let toyota = Logo(image: UIImage(named: "toyota")!, name: "toyota")
+        let vw = Logo(image: UIImage(named: "vw")!, name: "vw")
+        let audi = Logo(image: UIImage(named: "audi")!, name: "audi")
+        
+        arrayLogo.append(mazda)
+        arrayLogo.append(bmw)
+        arrayLogo.append(lexus)
+        arrayLogo.append(toyota)
+        arrayLogo.append(vw)
+        arrayLogo.append(audi)
+
     }
 }
 
@@ -53,7 +81,13 @@ extension MainScreenView {
             logoCollection.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             logoCollection.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             logoCollection.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            logoCollection.heightAnchor.constraint(equalToConstant: 80)
+            logoCollection.heightAnchor.constraint(equalToConstant: 80),
+            
+            carsCollection.topAnchor.constraint(equalTo: logoCollection.bottomAnchor, constant: 20),
+            carsCollection.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            carsCollection.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            carsCollection.bottomAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.bottomAnchor, multiplier: 0),
+            
         ])
     }
 }
@@ -64,15 +98,40 @@ extension MainScreenView: UICollectionViewDelegate {
 
 extension MainScreenView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        7
+        6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarsLogoCell.identifier, for: indexPath) as? CarsLogoCell
-        else { return UICollectionViewCell() }
         
-        return cell
+        switch collectionView {
+        case logoCollection:
+            guard let cellLogo = collectionView.dequeueReusableCell(withReuseIdentifier: CarsLogoCell.identifier, for: indexPath) as? CarsLogoCell
+            else { return UICollectionViewCell() }
+            let logo = arrayLogo[indexPath.item]
+            switch logo.name {
+            case "bmw":
+                cellLogo.logoImage.image = UIImage(named: "bmw")
+            case "audi":
+                cellLogo.logoImage.image = UIImage(named: "audi")
+            case "lexus":
+                cellLogo.logoImage.image = UIImage(named: "lexus")
+            case "vw":
+                cellLogo.logoImage.image = UIImage(named: "vw")
+            case "toyota":
+                cellLogo.logoImage.image = UIImage(named: "toyota")
+            default:
+                cellLogo.logoImage.image = UIImage(named: "mazda")
+
+            }
+
+            return cellLogo
+            
+        case carsCollection:
+            guard let carsCell = collectionView.dequeueReusableCell(withReuseIdentifier: CarsCell.identifier, for: indexPath) as? CarsCell
+            else { return UICollectionViewCell() }
+            return carsCell
+        default:
+            return UICollectionViewCell()
+        }
     }
-    
-    
 }

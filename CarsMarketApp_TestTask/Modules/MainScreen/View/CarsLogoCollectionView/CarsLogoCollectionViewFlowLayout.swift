@@ -13,8 +13,8 @@ class CarsLogoCollectionViewFlowLayout: UICollectionViewFlowLayout {
         super.init()
         scrollDirection = .horizontal
         itemSize = CGSize(width: 70, height: 70)
-        minimumLineSpacing = 3
-        sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        minimumLineSpacing = 20
+        sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     required init?(coder: NSCoder) {
