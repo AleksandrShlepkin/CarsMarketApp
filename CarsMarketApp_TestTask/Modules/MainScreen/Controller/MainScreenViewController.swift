@@ -8,10 +8,15 @@
 import UIKit
 
 class MainScreenViewController: UIViewController {
+    
+    private let mainScreenView = MainScreenView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+    }
+    
+    override func loadView() {
+        view = mainScreenView
     }
 
 
