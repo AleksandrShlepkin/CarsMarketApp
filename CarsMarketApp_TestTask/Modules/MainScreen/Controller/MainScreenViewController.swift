@@ -17,8 +17,8 @@ class MainScreenViewController: UIViewController {
     
     override func loadView() {
         view = mainScreenView
-    }
 
+    }
 
 }
 

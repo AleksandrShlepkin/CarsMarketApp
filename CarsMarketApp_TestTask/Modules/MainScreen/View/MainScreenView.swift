@@ -9,14 +9,14 @@ import UIKit
 
 class MainScreenView: UIView {
     
-    private var arrayLogo: [Logo] = []
+    private let mokObject = MokCars()
     
-    private let logoCollection: CarsLogoCollectionView = {
+    private(set) var logoCollection: CarsLogoCollectionView = {
         let collection = CarsLogoCollectionView()
         return collection
     }()
     
-    private let carsCollection: CarsColletcionView = {
+    private(set) var carsCollection: CarsColletcionView = {
         let collection = CarsColletcionView()
         return collection
     }()
@@ -33,7 +33,6 @@ class MainScreenView: UIView {
         super.init(frame: frame)
         createUI()
         createConstaraints()
-        makeMokObject()
         logoCollection.delegate = self
         logoCollection.dataSource = self
         carsCollection.delegate = self
@@ -51,22 +50,6 @@ class MainScreenView: UIView {
         addSubview(carsCollection)
     }
     
-    private func makeMokObject() {
-        let mazda = Logo(image: UIImage(named: "mazda")!, name: "mazda")
-        let bmw = Logo(image: UIImage(named: "bmw")!, name: "bmw")
-        let lexus = Logo(image: UIImage(named: "lexus")!, name: "lexus")
-        let toyota = Logo(image: UIImage(named: "toyota")!, name: "toyota")
-        let vw = Logo(image: UIImage(named: "vw")!, name: "vw")
-        let audi = Logo(image: UIImage(named: "audi")!, name: "audi")
-        
-        arrayLogo.append(mazda)
-        arrayLogo.append(bmw)
-        arrayLogo.append(lexus)
-        arrayLogo.append(toyota)
-        arrayLogo.append(vw)
-        arrayLogo.append(audi)
-
-    }
 }
 
 extension MainScreenView {
@@ -79,13 +62,13 @@ extension MainScreenView {
             titleLabel.heightAnchor.constraint(equalToConstant: 50),
             
             logoCollection.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            logoCollection.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            logoCollection.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            logoCollection.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            logoCollection.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             logoCollection.heightAnchor.constraint(equalToConstant: 80),
             
             carsCollection.topAnchor.constraint(equalTo: logoCollection.bottomAnchor, constant: 20),
-            carsCollection.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            carsCollection.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            carsCollection.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            carsCollection.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             carsCollection.bottomAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.bottomAnchor, multiplier: 0),
             
         ])
@@ -93,12 +76,25 @@ extension MainScreenView {
 }
 
 extension MainScreenView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let indexPath = collectionView.indexPathsForSelectedItems else { return }
+//        controller.navigationController?.pushViewController(DetailsViewController(), animated: true)
+        print("tapped")
+        
+    }
 }
 
 extension MainScreenView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        6
+        switch collectionView {
+        case logoCollection:
+            return mokObject.arrayLogo.count
+        case carsCollection:
+            return mokObject.arrayCar.count
+        default:
+            return 0
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -107,7 +103,7 @@ extension MainScreenView: UICollectionViewDataSource {
         case logoCollection:
             guard let cellLogo = collectionView.dequeueReusableCell(withReuseIdentifier: CarsLogoCell.identifier, for: indexPath) as? CarsLogoCell
             else { return UICollectionViewCell() }
-            let logo = arrayLogo[indexPath.item]
+            let logo = mokObject.arrayLogo[indexPath.item]
             switch logo.name {
             case "bmw":
                 cellLogo.logoImage.image = UIImage(named: "bmw")
@@ -119,16 +115,23 @@ extension MainScreenView: UICollectionViewDataSource {
                 cellLogo.logoImage.image = UIImage(named: "vw")
             case "toyota":
                 cellLogo.logoImage.image = UIImage(named: "toyota")
+            case "mercedes":
+                cellLogo.logoImage.image = UIImage(named: "mercedes")
             default:
                 cellLogo.logoImage.image = UIImage(named: "mazda")
-
+                
             }
-
+            
             return cellLogo
             
         case carsCollection:
             guard let carsCell = collectionView.dequeueReusableCell(withReuseIdentifier: CarsCell.identifier, for: indexPath) as? CarsCell
             else { return UICollectionViewCell() }
+            let car = mokObject.arrayCar[indexPath.row]
+            carsCell.carMakeLabel.text = car.carMake
+            carsCell.mainImage.image = car.mainImage
+            carsCell.modelLabel.text = car.model
+            carsCell.typeEngineLabel.text = car.price
             return carsCell
         default:
             return UICollectionViewCell()

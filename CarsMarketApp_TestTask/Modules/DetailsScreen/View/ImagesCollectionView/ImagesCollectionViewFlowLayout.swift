@@ -1,17 +1,17 @@
 //
-//  CarsCollectionViewFlowLayout.swift
+//  ImagesCollectionViewFlowLayout.swift
 //  CarsMarketApp_TestTask
 //
-//  Created by Mac on 03.08.2023.
+//  Created by Mac on 05.08.2023.
 //
 
 import UIKit
 
-class CarsCollectionViewFlowLayout: UICollectionViewFlowLayout {
+class ImagesCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     override init() {
         super.init()
-        scrollDirection = .vertical
+        scrollDirection = .horizontal
         itemSize = CGSize(width: 400, height: 300)
         minimumLineSpacing = 15
     }

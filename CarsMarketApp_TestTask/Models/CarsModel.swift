@@ -36,9 +36,11 @@ struct CarsModel {
     let carMake: String
     let model: String
     let mainImage: UIImage
-    let subImage: UIImage
+    let subImage: UIImage? = nil
     let power: String
-    let doors: [DoorsType]
-    let type: [CarsType]
-    let logo : [Logo]
+    let doors: DoorsType
+    let type: CarsType
+    let logo: Logo? = nil
+    let engine: EngineType
+    let price: String
 }
