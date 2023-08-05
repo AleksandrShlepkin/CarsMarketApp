@@ -21,7 +21,7 @@ enum EngineType: String {
 }
 
 enum DoorsType: String {
-    case DoubleDoor = "Двудверный"
+    case DoubleDoor = "Двухдверный"
     case FourDoor = "Четырехдверный"
     
 }

@@ -30,7 +30,6 @@ class CarsLogoCell: UICollectionViewCell {
     private func createUI() {
         addSubview(logoImage)
     }
-    
 }
 
 extension CarsLogoCell {

@@ -9,7 +9,7 @@ import UIKit
 
 class CarsCell: UICollectionViewCell {
     
-    static let identifier = "Cers"
+    static let identifier = "Cars"
     
     private(set) var carMakeLabel: BaseLabel = {
         let label = BaseLabel()
@@ -101,7 +101,6 @@ extension CarsCell {
             typeEngineLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             typeEngineLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             typeEngineLabel.heightAnchor.constraint(equalToConstant: 25)
-            
         ])
     }
 }

@@ -13,10 +13,8 @@ class DetailsViewController: UIViewController {
     
     var car: CarsModel?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         detailsView.imagesCollection.delegate = self
         detailsView.imagesCollection.dataSource = self
         setupView()
@@ -30,14 +28,14 @@ class DetailsViewController: UIViewController {
 extension DetailsViewController {
     
     private func setupView() {
+        
         detailsView.carMakeLabel.text = car?.carMake
         detailsView.modelLabel.text = car?.model
-        detailsView.doorsCountLabel.text = car?.doors.rawValue
-        detailsView.powerLabel.text = car?.power
-        detailsView.typeCarLabel.text = car?.type.rawValue
-        detailsView.typeEngineLabel.text = car?.engine.rawValue
+        detailsView.doorsCountLabel.text = "Колличество дверей: \(car!.doors.rawValue)"
+        detailsView.powerLabel.text = "Мощность: \(car!.power)"
+        detailsView.typeCarLabel.text = "Класс автомобиля: \(car!.type.rawValue)"
+        detailsView.typeEngineLabel.text = "Тип двигателя: \(car!.engine.rawValue)"
         detailsView.priceLabel.text = car?.price
-        
     }
 }
 
@@ -47,7 +45,7 @@ extension DetailsViewController: UICollectionViewDelegate {
 
 extension DetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -56,6 +54,4 @@ extension DetailsViewController: UICollectionViewDataSource {
         imageCell.carImage.image = car?.mainImage
         return imageCell
     }
-    
-    
 }

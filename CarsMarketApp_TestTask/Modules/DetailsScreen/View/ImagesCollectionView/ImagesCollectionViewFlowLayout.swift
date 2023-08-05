@@ -12,8 +12,8 @@ class ImagesCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override init() {
         super.init()
         scrollDirection = .horizontal
-        itemSize = CGSize(width: 200, height: 200)
-        minimumLineSpacing = 1
+        itemSize = CGSize(width: 380, height: 300)
+        minimumLineSpacing = 5
     }
     
     required init?(coder: NSCoder) {
