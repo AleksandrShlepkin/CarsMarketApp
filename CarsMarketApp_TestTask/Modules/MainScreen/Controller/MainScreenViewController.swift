@@ -27,11 +27,20 @@ class MainScreenViewController: UIViewController {
 
 extension MainScreenViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let car = mokObject.arrayCar[indexPath.row]
-        let detailsController = DetailsViewController()
-        detailsController.car = car
-        navigationController?.pushViewController(detailsController, animated: true)
-        print("tapped")
+        switch collectionView {
+        case mainScreenView.carsCollection:
+            let car = mokObject.arrayCar[indexPath.row]
+            let detailsController = DetailsViewController()
+            detailsController.car = car
+            navigationController?.pushViewController(detailsController, animated: true)
+        case mainScreenView.logoCollection:
+            let logo = mokObject.arrayLogo[indexPath.row]
+            mokObject.sortedCarsArray(name: logo.name)
+            mainScreenView.carsCollection.reloadData()
+            print("\(logo.name)")
+        default:
+            break
+        }
     }
 }
 
@@ -42,7 +51,11 @@ extension MainScreenViewController: UICollectionViewDataSource {
         case mainScreenView.logoCollection:
             return mokObject.arrayLogo.count
         case mainScreenView.carsCollection:
-            return mokObject.arrayCar.count
+            if mokObject.sortedArray.isEmpty {
+                return mokObject.arrayCar.count
+            } else {
+                return mokObject.sortedArray.count
+            }
         default:
             return 0
         }
@@ -56,17 +69,17 @@ extension MainScreenViewController: UICollectionViewDataSource {
             else { return UICollectionViewCell() }
             let logo = mokObject.arrayLogo[indexPath.item]
             switch logo.name {
-            case "bmw":
+            case "BMW":
                 cellLogo.logoImage.image = UIImage(named: "bmw")
-            case "audi":
+            case "Audi":
                 cellLogo.logoImage.image = UIImage(named: "audi")
-            case "lexus":
+            case "Lexus":
                 cellLogo.logoImage.image = UIImage(named: "lexus")
-            case "vw":
+            case "VW":
                 cellLogo.logoImage.image = UIImage(named: "vw")
-            case "toyota":
+            case "Toyota":
                 cellLogo.logoImage.image = UIImage(named: "toyota")
-            case "mercedes":
+            case "Mercedes":
                 cellLogo.logoImage.image = UIImage(named: "mercedes")
             default:
                 cellLogo.logoImage.image = UIImage(named: "mazda")
@@ -77,12 +90,21 @@ extension MainScreenViewController: UICollectionViewDataSource {
         case mainScreenView.carsCollection:
             guard let carsCell = collectionView.dequeueReusableCell(withReuseIdentifier: CarsCell.identifier, for: indexPath) as? CarsCell
             else { return UICollectionViewCell() }
-            let car = mokObject.arrayCar[indexPath.row]
-            carsCell.carMakeLabel.text = car.carMake
-            carsCell.mainImage.image = car.mainImage
-            carsCell.modelLabel.text = car.model
-            carsCell.typeEngineLabel.text = car.price
-            return carsCell
+            if mokObject.sortedArray.isEmpty {
+                let car = mokObject.arrayCar[indexPath.row]
+                carsCell.carMakeLabel.text = car.carMake
+                carsCell.mainImage.image = car.mainImage
+                carsCell.modelLabel.text = car.model
+                carsCell.typeEngineLabel.text = car.price
+                return carsCell
+            } else {
+                let car = mokObject.sortedArray[indexPath.row]
+                carsCell.carMakeLabel.text = car.carMake
+                carsCell.mainImage.image = car.mainImage
+                carsCell.modelLabel.text = car.model
+                carsCell.typeEngineLabel.text = car.price
+                return carsCell
+            }
         default:
             return UICollectionViewCell()
         }

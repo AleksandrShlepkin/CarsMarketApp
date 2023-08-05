@@ -11,6 +11,7 @@ class MokCars {
     
     public var arrayLogo: [Logo] = []
     public var arrayCar: [CarsModel] = []
+    public var sortedArray: [CarsModel] = []
     
     init() {
         makeMokLogo()
@@ -24,12 +25,12 @@ class MokCars {
 extension MokCars {
     
     private func makeMokLogo() {
-        let mazda = Logo(image: UIImage(named: "mazda")!, name: "mazda")
-        let bmw = Logo(image: UIImage(named: "bmw")!, name: "bmw")
-        let lexus = Logo(image: UIImage(named: "lexus")!, name: "lexus")
-        let toyota = Logo(image: UIImage(named: "toyota")!, name: "toyota")
-        let vw = Logo(image: UIImage(named: "vw")!, name: "vw")
-        let audi = Logo(image: UIImage(named: "audi")!, name: "audi")
+        let mazda = Logo(image: UIImage(named: "mazda")!, name: "Mazda")
+        let bmw = Logo(image: UIImage(named: "bmw")!, name: "BMW")
+        let lexus = Logo(image: UIImage(named: "lexus")!, name: "Lexus")
+        let toyota = Logo(image: UIImage(named: "toyota")!, name: "Toyota")
+        let vw = Logo(image: UIImage(named: "vw")!, name: "VW")
+        let audi = Logo(image: UIImage(named: "audi")!, name: "Audi")
         let mercedes = Logo(image: UIImage(named: "mercedes")!, name: "mercedes")
         
         arrayLogo.append(mazda)
@@ -239,5 +240,14 @@ extension MokCars {
         arrayCar.append(audiR8)
         arrayCar.append(vwPolo)
         arrayCar.append(vwPicup)
+    }
+}
+
+extension MokCars {
+    
+    public func sortedCarsArray(name: String)  {
+        var sortedArray = arrayCar
+        sortedArray.removeAll(where: { $0.carMake != name })
+        self.sortedArray = sortedArray
     }
 }
