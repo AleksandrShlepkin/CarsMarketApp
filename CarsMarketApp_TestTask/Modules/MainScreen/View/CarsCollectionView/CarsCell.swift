@@ -85,7 +85,6 @@ extension CarsCell {
             
             carMakeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             carMakeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-//            carMakeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             carMakeLabel.heightAnchor.constraint(equalToConstant: 30),
             
             modelLabel.centerYAnchor.constraint(equalTo: carMakeLabel.centerYAnchor, constant: 0),
@@ -95,7 +94,6 @@ extension CarsCell {
             
             mainImage.topAnchor.constraint(equalTo: carMakeLabel.bottomAnchor, constant: 5),
             mainImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-//            mainImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             mainImage.heightAnchor.constraint(equalToConstant: 140),
             mainImage.widthAnchor.constraint(equalToConstant: 200),
 

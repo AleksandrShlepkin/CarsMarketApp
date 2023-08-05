@@ -11,14 +11,37 @@ class ImagesCell: UICollectionViewCell {
     
     static let identifier = "image"
     
+    private(set) var carImage: UIImageView = {
+       let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .brown
+        setupUI()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupUI() {
+        addSubview(carImage)
+        backgroundColor = .white
+    }
     
+}
+
+extension ImagesCell {
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            carImage.topAnchor.constraint(equalTo: topAnchor),
+            carImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            carImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            carImage.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
 }

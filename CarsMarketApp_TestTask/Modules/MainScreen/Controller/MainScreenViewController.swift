@@ -27,8 +27,11 @@ class MainScreenViewController: UIViewController {
 
 extension MainScreenViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let indexPath = collectionView.indexPathsForSelectedItems else { return }
-        navigationController?.pushViewController(DetailsViewController(), animated: true)
+//        guard let indexPath = mainScreenView.carsCollection.indexPathsForSelectedItems else { return }
+        let car = mokObject.arrayCar[indexPath.row]
+        let detailsController = DetailsViewController()
+        detailsController.car = car
+        navigationController?.pushViewController(detailsController, animated: true)
         print("tapped")
     }
 }
