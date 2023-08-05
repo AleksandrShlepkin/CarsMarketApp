@@ -29,10 +29,17 @@ extension MainScreenViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case mainScreenView.carsCollection:
-            let car = mokObject.arrayCar[indexPath.row]
-            let detailsController = DetailsViewController()
-            detailsController.car = car
-            navigationController?.pushViewController(detailsController, animated: true)
+            if mokObject.sortedArray.isEmpty {
+                let car = mokObject.arrayCar[indexPath.row]
+                let detailsController = DetailsViewController()
+                detailsController.car = car
+                navigationController?.pushViewController(detailsController, animated: true)
+            } else {
+                let car = mokObject.sortedArray[indexPath.row]
+                let detailsController = DetailsViewController()
+                detailsController.car = car
+                navigationController?.pushViewController(detailsController, animated: true)
+            }
         case mainScreenView.logoCollection:
             let logo = mokObject.arrayLogo[indexPath.row]
             mokObject.sortedCarsArray(name: logo.name)
@@ -81,8 +88,10 @@ extension MainScreenViewController: UICollectionViewDataSource {
                 cellLogo.logoImage.image = UIImage(named: "toyota")
             case "Mercedes":
                 cellLogo.logoImage.image = UIImage(named: "mercedes")
-            default:
+            case "Mazda":
                 cellLogo.logoImage.image = UIImage(named: "mazda")
+            default:
+                cellLogo.logoImage.image = UIImage(named: "all")
             }
             
             return cellLogo

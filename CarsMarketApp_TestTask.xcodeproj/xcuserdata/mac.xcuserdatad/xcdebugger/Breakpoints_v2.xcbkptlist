@@ -14,8 +14,8 @@
             filePath = "CarsMarketApp_TestTask/Models/MokCars.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "sortedCarsArray(name:)"
             landmarkType = "7">
          </BreakpointContent>

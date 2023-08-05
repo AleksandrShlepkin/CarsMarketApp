@@ -32,6 +32,7 @@ extension MokCars {
         let vw = Logo(image: UIImage(named: "vw")!, name: "VW")
         let audi = Logo(image: UIImage(named: "audi")!, name: "Audi")
         let mercedes = Logo(image: UIImage(named: "mercedes")!, name: "mercedes")
+        let allCars = Logo(image: UIImage(named: "all")!, name: "all")
         
         arrayLogo.append(mazda)
         arrayLogo.append(bmw)
@@ -40,6 +41,7 @@ extension MokCars {
         arrayLogo.append(vw)
         arrayLogo.append(audi)
         arrayLogo.append(mercedes)
+        arrayLogo.append(allCars)
     }
 }
 
