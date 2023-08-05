@@ -43,13 +43,13 @@ class MainScreenView: UIView {
         addSubview(logoCollection)
         addSubview(carsCollection)
     }
-    
 }
 
 extension MainScreenView {
 
     private func createConstaraints() {
         NSLayoutConstraint.activate([
+            
             titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -40),
@@ -64,7 +64,6 @@ extension MainScreenView {
             carsCollection.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             carsCollection.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             carsCollection.bottomAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.bottomAnchor, multiplier: 0),
-
         ])
     }
 }
