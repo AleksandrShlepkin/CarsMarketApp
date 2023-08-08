@@ -29,6 +29,9 @@
 		04A2144E2A7DA47F006FE231 /* ImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2144D2A7DA47F006FE231 /* ImagesCell.swift */; };
 		04A214532A824380006FE231 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A214522A824380006FE231 /* CartViewController.swift */; };
 		04A214552A8243BA006FE231 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A214542A8243BA006FE231 /* CartView.swift */; };
+		04A214582A827FFA006FE231 /* InsuranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A214572A827FFA006FE231 /* InsuranceView.swift */; };
+		04A2145A2A82800D006FE231 /* SportPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A214592A82800D006FE231 /* SportPackageView.swift */; };
+		04A2145C2A828020006FE231 /* WarrantyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2145B2A82801F006FE231 /* WarrantyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		04A2144D2A7DA47F006FE231 /* ImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCell.swift; sourceTree = "<group>"; };
 		04A214522A824380006FE231 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		04A214542A8243BA006FE231 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		04A214572A827FFA006FE231 /* InsuranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceView.swift; sourceTree = "<group>"; };
+		04A214592A82800D006FE231 /* SportPackageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPackageView.swift; sourceTree = "<group>"; };
+		04A2145B2A82801F006FE231 /* WarrantyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +236,7 @@
 		04A214502A824362006FE231 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04A214562A827FBE006FE231 /* Subview */,
 				04A214542A8243BA006FE231 /* CartView.swift */,
 			);
 			path = View;
@@ -241,6 +248,16 @@
 				04A214522A824380006FE231 /* CartViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		04A214562A827FBE006FE231 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				04A214572A827FFA006FE231 /* InsuranceView.swift */,
+				04A214592A82800D006FE231 /* SportPackageView.swift */,
+				04A2145B2A82801F006FE231 /* WarrantyView.swift */,
+			);
+			path = Subview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,9 +331,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A214392A7C40EF006FE231 /* CarsModel.swift in Sources */,
+				04A214582A827FFA006FE231 /* InsuranceView.swift in Sources */,
 				04A214402A7D851A006FE231 /* MokCars.swift in Sources */,
 				04A2144A2A7DA3FA006FE231 /* ImagesCollectionView.swift in Sources */,
 				04A2144E2A7DA47F006FE231 /* ImagesCell.swift in Sources */,
+				04A2145C2A828020006FE231 /* WarrantyView.swift in Sources */,
 				04A2143C2A7C494B006FE231 /* BaseLabel.swift in Sources */,
 				04A2142D2A7C366E006FE231 /* CarsLogoCollectionViewFlowLayout.swift in Sources */,
 				04A214132A7C2D61006FE231 /* MainScreenViewController.swift in Sources */,
@@ -330,6 +349,7 @@
 				04A2144C2A7DA435006FE231 /* ImagesCollectionViewFlowLayout.swift in Sources */,
 				04A2142F2A7C373B006FE231 /* CarsLogoCell.swift in Sources */,
 				04A214472A7D9C93006FE231 /* DetailsView.swift in Sources */,
+				04A2145A2A82800D006FE231 /* SportPackageView.swift in Sources */,
 				04A214452A7D9C58006FE231 /* DetailsViewController.swift in Sources */,
 				04A214112A7C2D61006FE231 /* SceneDelegate.swift in Sources */,
 				04A214282A7C30ED006FE231 /* MainScreenView.swift in Sources */,

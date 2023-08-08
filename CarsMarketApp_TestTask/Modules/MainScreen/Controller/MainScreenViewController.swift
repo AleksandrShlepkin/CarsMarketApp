@@ -31,13 +31,11 @@ extension MainScreenViewController: UICollectionViewDelegate {
         case mainScreenView.carsCollection:
             if mokObject.sortedArray.isEmpty {
                 let car = mokObject.arrayCar[indexPath.row]
-                let detailsController = DetailsViewController()
-                detailsController.car = car
+                let detailsController = DetailsViewController(car: car)
                 navigationController?.pushViewController(detailsController, animated: true)
             } else {
                 let car = mokObject.sortedArray[indexPath.row]
-                let detailsController = DetailsViewController()
-                detailsController.car = car
+                let detailsController = DetailsViewController(car: car)
                 navigationController?.pushViewController(detailsController, animated: true)
             }
         case mainScreenView.logoCollection:

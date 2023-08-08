@@ -38,7 +38,7 @@ extension ImagesCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            carImage.topAnchor.constraint(equalTo: topAnchor),
+            carImage.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             carImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             carImage.trailingAnchor.constraint(equalTo: trailingAnchor),
             carImage.bottomAnchor.constraint(equalTo: bottomAnchor)

@@ -57,7 +57,7 @@ extension MokCars {
                                     doors: DoorsType.DoubleDoor,
                                     type: CarsType.Sportcar,
                                     engine: EngineType.GasolineEngine,
-                                    price: "от 18'900'000 руб" )
+                                    price: " 18'900'000 руб" )
         
         let mercedesCLA = CarsModel(carMake: "Mercedes",
                                     model: "CLA",
@@ -66,7 +66,7 @@ extension MokCars {
                                     doors: DoorsType.DoubleDoor,
                                     type: CarsType.Sedan,
                                     engine: EngineType.ElectricMotor,
-                                    price: "от 5'600'000 руб" )
+                                    price: " 5'600'000 руб" )
         
         let mercedesGLS = CarsModel(carMake: "Mercedes",
                                     model: "GLS",
@@ -75,7 +75,7 @@ extension MokCars {
                                     doors: DoorsType.FourDoor,
                                     type: CarsType.SUV,
                                     engine: EngineType.DieselEngine,
-                                    price: "от 15'900'000 руб" )
+                                    price: " 15'900'000 руб" )
         
         let audiA7 = CarsModel(carMake: "Audi",
                                model: "A7",
@@ -84,7 +84,7 @@ extension MokCars {
                                doors: DoorsType.FourDoor,
                                type: CarsType.Sedan,
                                engine: EngineType.DieselEngine,
-                               price: "от 9'990'000 руб" )
+                               price: " 9'990'000 руб" )
         
         let audiQ7 = CarsModel(carMake: "Audi",
                                model: "Q7",
@@ -93,7 +93,7 @@ extension MokCars {
                                doors: DoorsType.FourDoor,
                                type: CarsType.SUV,
                                engine: EngineType.DieselEngine,
-                               price: "от 12'900'000 руб" )
+                               price: " 12'900'000 руб" )
         
         let audiR8 = CarsModel(carMake: "Audi",
                                model: "R8",
@@ -102,7 +102,7 @@ extension MokCars {
                                doors: DoorsType.DoubleDoor,
                                type: CarsType.Sportcar,
                                engine: EngineType.GasolineEngine,
-                               price: "от 28'000'000 руб" )
+                               price: " 28'000'000 руб" )
         
         let bmw3 = CarsModel(carMake: "BMW",
                              model: "3",
@@ -111,7 +111,7 @@ extension MokCars {
                              doors: DoorsType.FourDoor,
                              type: CarsType.Sedan,
                              engine: EngineType.GasolineEngine,
-                             price: "от 4'900'000 руб" )
+                             price: " 4'900'000 руб" )
         
         let bmwM3 = CarsModel(carMake: "BMW",
                               model: "M3",
@@ -120,7 +120,7 @@ extension MokCars {
                               doors: DoorsType.DoubleDoor,
                               type: CarsType.Sportcar,
                               engine: EngineType.GasolineEngine,
-                              price: "от 8'900'000 руб" )
+                              price: " 8'900'000 руб" )
         
         let bmwX6 = CarsModel(carMake: "BMW",
                               model: "X6",
@@ -129,7 +129,7 @@ extension MokCars {
                               doors: DoorsType.FourDoor,
                               type: CarsType.SUV,
                               engine: EngineType.DieselEngine,
-                              price: "от 12'900'000 руб" )
+                              price: " 12'900'000 руб" )
         
         let lexusIX = CarsModel(carMake: "Lexus",
                                 model: "IX",
@@ -138,7 +138,7 @@ extension MokCars {
                                 doors: DoorsType.DoubleDoor,
                                 type: CarsType.Sportcar,
                                 engine: EngineType.GasolineEngine,
-                                price: "от 7'900'000 руб" )
+                                price: " 7'900'000 руб" )
         
         let lexusLS = CarsModel(carMake: "Lexus",
                                 model: "LS",
@@ -147,7 +147,7 @@ extension MokCars {
                                 doors: DoorsType.FourDoor,
                                 type: CarsType.SUV,
                                 engine: EngineType.DieselEngine,
-                                price: "от 13'900'000 руб" )
+                                price: " 13'900'000 руб" )
         
         let mazda6 = CarsModel(carMake: "Mazda",
                                model: "6",
@@ -156,7 +156,7 @@ extension MokCars {
                                doors: DoorsType.FourDoor,
                                type: CarsType.Sedan,
                                engine: EngineType.GasolineEngine,
-                               price: "от 2'900'000 руб" )
+                               price: " 2'900'000 руб" )
         
         let mazdaCX5 = CarsModel(carMake: "Mazda",
                                  model: "CX5",
@@ -165,7 +165,7 @@ extension MokCars {
                                  doors: DoorsType.FourDoor,
                                  type: CarsType.SUV,
                                  engine: EngineType.DieselEngine,
-                                 price: "от 3'900'000 руб" )
+                                 price: " 3'900'000 руб" )
         
         let mazdaMX5 = CarsModel(carMake: "Mazda",
                                  model: "MX5",
@@ -174,7 +174,7 @@ extension MokCars {
                                  doors: DoorsType.DoubleDoor,
                                  type: CarsType.Sportcar,
                                  engine: EngineType.GasolineEngine,
-                                 price: "от 8'900'000 руб" )
+                                 price: " 8'900'000 руб" )
         
         let toyotaCamry = CarsModel(carMake: "Toyota",
                                     model: "Camry",
@@ -183,7 +183,7 @@ extension MokCars {
                                     doors: DoorsType.FourDoor,
                                     type: CarsType.Sedan,
                                     engine: EngineType.GasolineEngine,
-                                    price: "от 3'900'000 руб" )
+                                    price: " 3'900'000 руб" )
         
         let toyotaCorolla = CarsModel(carMake: "Toyota",
                                       model: "Corolla",
@@ -192,7 +192,7 @@ extension MokCars {
                                       doors: DoorsType.FourDoor,
                                       type: CarsType.Sedan,
                                       engine: EngineType.GasolineEngine,
-                                      price: "от 1'900'000 руб" )
+                                      price: " 1'900'000 руб" )
         
         let toyotaSupra = CarsModel(carMake: "Toyota",
                                     model: "Supra",
@@ -201,7 +201,7 @@ extension MokCars {
                                     doors: DoorsType.DoubleDoor,
                                     type: CarsType.Sportcar,
                                     engine: EngineType.GasolineEngine,
-                                    price: "от 18'900'000 руб" )
+                                    price: " 18'900'000 руб" )
         
         
         let vwPicup = CarsModel(carMake: "VW",
@@ -211,7 +211,7 @@ extension MokCars {
                                 doors: DoorsType.FourDoor,
                                 type: CarsType.SUV,
                                 engine: EngineType.GasolineEngine,
-                                price: "от 8'900'000 руб" )
+                                price: " 8'900'000 руб" )
         
         let vwPolo = CarsModel(carMake: "VW",
                                model: "Polo",
@@ -220,7 +220,7 @@ extension MokCars {
                                doors: DoorsType.FourDoor,
                                type: CarsType.Sedan,
                                engine: EngineType.GasolineEngine,
-                               price: "от 1'900'000 руб" )
+                               price: " 1'900'000 руб" )
         
         
         arrayCar.append(mercedesAMG)

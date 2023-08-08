@@ -75,6 +75,8 @@ class DetailsView: UIView {
         button.layer.cornerRadius = 10
         button.backgroundColor = #colorLiteral(red: 0, green: 0.447752893, blue: 0.9782672524, alpha: 0.8542648627)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(sendData), for: .touchUpInside)
+
         return button
     }()
     
@@ -82,6 +84,7 @@ class DetailsView: UIView {
         super.init(frame: frame)
         setupUI()
         setupConstraints()
+
     }
     
     required init?(coder: NSCoder) {
@@ -100,8 +103,15 @@ class DetailsView: UIView {
         stackView.addSubview(typeCarLabel)
         stackView.addSubview(typeEngineLabel)
         stackView.addSubview(buyButton)
-        
+                
         backgroundColor = .white
+    }
+}
+
+extension DetailsView {
+    
+    @objc private func sendData() {
+        NotificationCenter.default.post(name: Notification.Name("Cart"), object: nil)
     }
 }
 
