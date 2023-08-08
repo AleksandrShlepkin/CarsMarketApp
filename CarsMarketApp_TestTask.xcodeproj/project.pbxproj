@@ -27,6 +27,8 @@
 		04A2144A2A7DA3FA006FE231 /* ImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A214492A7DA3FA006FE231 /* ImagesCollectionView.swift */; };
 		04A2144C2A7DA435006FE231 /* ImagesCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2144B2A7DA435006FE231 /* ImagesCollectionViewFlowLayout.swift */; };
 		04A2144E2A7DA47F006FE231 /* ImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2144D2A7DA47F006FE231 /* ImagesCell.swift */; };
+		04A214532A824380006FE231 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A214522A824380006FE231 /* CartViewController.swift */; };
+		04A214552A8243BA006FE231 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A214542A8243BA006FE231 /* CartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		04A214492A7DA3FA006FE231 /* ImagesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionView.swift; sourceTree = "<group>"; };
 		04A2144B2A7DA435006FE231 /* ImagesCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		04A2144D2A7DA47F006FE231 /* ImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCell.swift; sourceTree = "<group>"; };
+		04A214522A824380006FE231 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		04A214542A8243BA006FE231 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		04A214232A7C2FBC006FE231 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				04A2144F2A82432B006FE231 /* CartView */,
 				04A214412A7D9BEA006FE231 /* DetailsScreen */,
 				04A214242A7C2FC9006FE231 /* MainScreen */,
 			);
@@ -213,6 +218,31 @@
 			path = ImagesCollectionView;
 			sourceTree = "<group>";
 		};
+		04A2144F2A82432B006FE231 /* CartView */ = {
+			isa = PBXGroup;
+			children = (
+				04A214502A824362006FE231 /* View */,
+				04A214512A824369006FE231 /* Controller */,
+			);
+			path = CartView;
+			sourceTree = "<group>";
+		};
+		04A214502A824362006FE231 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04A214542A8243BA006FE231 /* CartView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04A214512A824369006FE231 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04A214522A824380006FE231 /* CartViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,6 +322,8 @@
 				04A214132A7C2D61006FE231 /* MainScreenViewController.swift in Sources */,
 				04A2142B2A7C35EF006FE231 /* CarsLogoCollectionView.swift in Sources */,
 				04A214322A7C3FB6006FE231 /* CarsColletcionView.swift in Sources */,
+				04A214532A824380006FE231 /* CartViewController.swift in Sources */,
+				04A214552A8243BA006FE231 /* CartView.swift in Sources */,
 				04A214342A7C4009006FE231 /* CarsCollectionViewFlowLayout.swift in Sources */,
 				04A2140F2A7C2D61006FE231 /* AppDelegate.swift in Sources */,
 				04A214362A7C40A2006FE231 /* CarsCell.swift in Sources */,
