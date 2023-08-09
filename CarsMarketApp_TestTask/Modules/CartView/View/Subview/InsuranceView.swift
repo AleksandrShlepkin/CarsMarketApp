@@ -23,11 +23,12 @@ class InsuranceView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
         setupConstraints()
+        actionButton.addTarget(self, action: #selector(addPack), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -37,9 +38,13 @@ class InsuranceView: UIView {
     private func setupUI() {
         addSubview(titleLabel)
         addSubview(actionButton)
-        
         backgroundColor = .white
     }
+    
+    @objc func addPack() {
+        NotificationCenter.default.post(name: Notification.Name("Pack"), object: nil)
+    }
+
 }
 
 

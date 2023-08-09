@@ -57,7 +57,7 @@ extension MokCars {
                                     doors: DoorsType.DoubleDoor,
                                     type: CarsType.Sportcar,
                                     engine: EngineType.GasolineEngine,
-                                    price: " 18'900'000 руб" )
+                                    price: "\(18000000)" )
         
         let mercedesCLA = CarsModel(carMake: "Mercedes",
                                     model: "CLA",
