@@ -21,14 +21,24 @@ public enum State {
 class CartViewController: UIViewController {
     
     var car: CarsModel
+    var pricePackage = 0
     private let cartView = CartView()
-    private let insurance = InsuranceView()
-    private let ins = 2
     
-    
-    public var state = State.delete {
+    private var stateInsuranse = State.delete {
         didSet {
-            addPackage(package: ins)
+            addPackageInsurance(package: 2)
+        }
+    }
+    
+    private var stateSport = State.delete {
+        didSet {
+            addSportPackage(package: 3)
+        }
+    }
+    
+    private var stateWarranty = State.delete {
+        didSet {
+            addWarrantyPackage(package: 1)
         }
     }
     
@@ -48,8 +58,17 @@ class CartViewController: UIViewController {
         setupData()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(addInsurance),
-                                               name: Notification.Name("Pack"),
+                                               name: Notification.Name("Insurance"),
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(addSport),
+                                               name: Notification.Name("Sport"),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(addWarranty),
+                                               name: Notification.Name("Warranty"),
+                                               object: nil)
+        
     }
     
     override func loadView() {
@@ -60,29 +79,62 @@ class CartViewController: UIViewController {
 extension CartViewController {
     
     private func setupData() {
-//        let carPrice = (Int(car.price) ?? 0 + pricePackage)
         cartView.mainImage.image = car.mainImage
         cartView.titleLabel.text = "\(car.carMake) \(car.model) \(car.type)"
         cartView.sumLabel.text = car.price
     }
     
-    public func addPackage(package pack: Int) {
-        var pricePackage = 0
+    public func addPackageInsurance(package pack: Int) {
         let carPrice = (Int(car.price))
         let package = ((carPrice) ?? 0) / 100 * pack
-        pricePackage = package
-        let sumPrice = (Int(car.price) ?? 0 + pricePackage)
-
-        switch state {
+        
+        switch stateInsuranse {
         case .add:
-            cartView.sumLabel.text = String(sumPrice)
+            self.pricePackage += package
+            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
         case .delete:
-            cartView.sumLabel.text = String((sumPrice))
-
+            self.pricePackage -= package
+            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
         }
     }
     
     @objc func addInsurance() {
-        state.toggle()
+        stateInsuranse.toggle()
+    }
+    
+    public func addSportPackage(package pack: Int) {
+        let carPrice = (Int(car.price))
+        let package = ((carPrice) ?? 0) / 100 * pack
+        
+        switch stateSport {
+        case .add:
+            self.pricePackage += package
+            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
+        case .delete:
+            self.pricePackage -= package
+            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
+        }
+    }
+    
+    @objc func addSport() {
+        stateSport.toggle()
+    }
+    
+    public func addWarrantyPackage(package pack: Int) {
+        let carPrice = (Int(car.price))
+        let package = ((carPrice) ?? 0) / 100 * pack
+        
+        switch stateWarranty {
+        case .add:
+            self.pricePackage += package
+            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
+        case .delete:
+            self.pricePackage -= package
+            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
+        }
+    }
+    
+    @objc func addWarranty() {
+        stateWarranty.toggle()
     }
 }

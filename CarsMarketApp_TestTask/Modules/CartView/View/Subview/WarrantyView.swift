@@ -9,6 +9,14 @@ import UIKit
 
 class WarrantyView: UIView {
     
+    private var state = State.delete {
+        didSet {
+            setupAnimation()
+        }
+    }
+    
+    let timeAnimation: TimeInterval = 0.2
+    
     private(set) var titleLabel: BaseLabel = {
         let label = BaseLabel()
         label.text = "Расширенная гарантия"
@@ -28,6 +36,7 @@ class WarrantyView: UIView {
         super.init(frame: frame)
         setupUI()
         setupConstraints()
+        actionButton.addTarget(self, action: #selector(addPack), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -39,6 +48,11 @@ class WarrantyView: UIView {
         addSubview(actionButton)
         
         backgroundColor = .white
+    }
+    
+    @objc func addPack() {
+        NotificationCenter.default.post(name: Notification.Name("Warranty"), object: nil)
+        state.toggle()
     }
 
 }
@@ -58,5 +72,25 @@ extension WarrantyView {
             actionButton.topAnchor.constraint(equalTo: topAnchor, constant: 15)
 
         ])
+    }
+    
+    private func setupAnimation() {
+        switch state {
+            
+        case .add:
+            UIView.animate(withDuration: timeAnimation) {
+                self.actionButton.alpha = 0.3
+            } completion: { _ in
+                self.actionButton.setImage(UIImage(named: "added"), for: .normal)
+                self.actionButton.alpha = 1
+            }
+        case .delete:
+            UIView.animate(withDuration: timeAnimation) {
+                self.actionButton.alpha = 0.3
+            } completion: { _ in
+                self.actionButton.setImage(UIImage(named: "plus"), for: .normal)
+                self.actionButton.alpha = 1
+            }
+        }
     }
 }

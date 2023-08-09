@@ -9,6 +9,14 @@ import UIKit
 
 class InsuranceView: UIView {
     
+    private var state = State.delete {
+        didSet {
+            setupAnimation()
+        }
+    }
+    
+    let timeAnimation: TimeInterval = 0.2
+    
     private(set) var titleLabel: BaseLabel = {
         let label = BaseLabel()
         label.text = "Каско"
@@ -42,7 +50,8 @@ class InsuranceView: UIView {
     }
     
     @objc func addPack() {
-        NotificationCenter.default.post(name: Notification.Name("Pack"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("Insurance"), object: nil)
+        state.toggle()
     }
 
 }
@@ -63,5 +72,25 @@ extension InsuranceView {
             actionButton.topAnchor.constraint(equalTo: topAnchor, constant: 15)
 
         ])
+    }
+    
+    private func setupAnimation() {
+        switch state {
+            
+        case .add:
+            UIView.animate(withDuration: timeAnimation) {
+                self.actionButton.alpha = 0.3
+            } completion: { _ in
+                self.actionButton.setImage(UIImage(named: "added"), for: .normal)
+                self.actionButton.alpha = 1
+            }
+        case .delete:
+            UIView.animate(withDuration: timeAnimation) {
+                self.actionButton.alpha = 0.3
+            } completion: { _ in
+                self.actionButton.setImage(UIImage(named: "plus"), for: .normal)
+                self.actionButton.alpha = 1
+            }
+        }
     }
 }
