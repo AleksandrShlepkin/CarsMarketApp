@@ -46,7 +46,7 @@ class SportPackageView: UIView {
     private func setupUI() {
         addSubview(titleLabel)
         addSubview(actionButton)
-        
+    
         backgroundColor = .white
     }
     
@@ -69,7 +69,6 @@ extension SportPackageView {
             actionButton.heightAnchor.constraint(equalToConstant: 30),
             actionButton.widthAnchor.constraint(equalToConstant: 30),
             actionButton.topAnchor.constraint(equalTo: topAnchor, constant: 15)
-
         ])
     }
     

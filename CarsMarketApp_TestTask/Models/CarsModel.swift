@@ -43,4 +43,5 @@ struct CarsModel {
     let logo: Logo? = nil
     let engine: EngineType
     let price: String
+    let calculation: Int
 }

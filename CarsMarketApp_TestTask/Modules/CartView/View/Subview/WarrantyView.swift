@@ -54,7 +54,6 @@ class WarrantyView: UIView {
         NotificationCenter.default.post(name: Notification.Name("Warranty"), object: nil)
         state.toggle()
     }
-
 }
 
 extension WarrantyView {

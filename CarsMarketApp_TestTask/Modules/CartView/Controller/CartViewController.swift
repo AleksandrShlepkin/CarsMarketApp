@@ -17,7 +17,6 @@ public enum State {
     }
 }
 
-
 class CartViewController: UIViewController {
     
     var car: CarsModel
@@ -26,22 +25,21 @@ class CartViewController: UIViewController {
     
     private var stateInsuranse = State.delete {
         didSet {
-            addPackageInsurance(package: 2)
+            addPackage(package: 2)
         }
     }
     
     private var stateSport = State.delete {
         didSet {
-            addSportPackage(package: 3)
+            addPackage(package: 3)
         }
     }
     
     private var stateWarranty = State.delete {
         didSet {
-            addWarrantyPackage(package: 1)
+            addPackage(package: 1)
         }
     }
-    
     
     init(car: CarsModel) {
         self.car = car
@@ -81,57 +79,29 @@ extension CartViewController {
     private func setupData() {
         cartView.mainImage.image = car.mainImage
         cartView.titleLabel.text = "\(car.carMake) \(car.model) \(car.type)"
-        cartView.sumLabel.text = car.price
+        cartView.sumLabel.text = String(car.calculation)
     }
     
-    public func addPackageInsurance(package pack: Int) {
-        let carPrice = (Int(car.price))
-        let package = ((carPrice) ?? 0) / 100 * pack
+    public func addPackage(package pack: Int) {
+        let carPrice = car.calculation
+        let package = carPrice / 100 * pack
         
         switch stateInsuranse {
         case .add:
             self.pricePackage += package
-            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
+            cartView.sumLabel.text = String(carPrice + pricePackage)
         case .delete:
             self.pricePackage -= package
-            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
+            cartView.sumLabel.text = String((carPrice ) + pricePackage)
         }
     }
     
     @objc func addInsurance() {
         stateInsuranse.toggle()
     }
-    
-    public func addSportPackage(package pack: Int) {
-        let carPrice = (Int(car.price))
-        let package = ((carPrice) ?? 0) / 100 * pack
-        
-        switch stateSport {
-        case .add:
-            self.pricePackage += package
-            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
-        case .delete:
-            self.pricePackage -= package
-            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
-        }
-    }
-    
+
     @objc func addSport() {
         stateSport.toggle()
-    }
-    
-    public func addWarrantyPackage(package pack: Int) {
-        let carPrice = (Int(car.price))
-        let package = ((carPrice) ?? 0) / 100 * pack
-        
-        switch stateWarranty {
-        case .add:
-            self.pricePackage += package
-            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
-        case .delete:
-            self.pricePackage -= package
-            cartView.sumLabel.text = String((carPrice ?? 0) + pricePackage)
-        }
     }
     
     @objc func addWarranty() {

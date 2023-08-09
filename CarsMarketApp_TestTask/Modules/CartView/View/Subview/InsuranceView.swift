@@ -46,6 +46,7 @@ class InsuranceView: UIView {
     private func setupUI() {
         addSubview(titleLabel)
         addSubview(actionButton)
+        
         backgroundColor = .white
     }
     
@@ -53,7 +54,6 @@ class InsuranceView: UIView {
         NotificationCenter.default.post(name: Notification.Name("Insurance"), object: nil)
         state.toggle()
     }
-
 }
 
 
@@ -70,7 +70,6 @@ extension InsuranceView {
             actionButton.heightAnchor.constraint(equalToConstant: 30),
             actionButton.widthAnchor.constraint(equalToConstant: 30),
             actionButton.topAnchor.constraint(equalTo: topAnchor, constant: 15)
-
         ])
     }
     
